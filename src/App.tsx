@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function App() {
   const leverageAreas = [
     {
@@ -56,21 +58,41 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F8F6F2] text-[#1C1917]">
-      <section className="border-b border-[#E7E0D6]">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:px-10">
-          <p className="text-sm font-medium uppercase tracking-[0.28em] text-[#6B645C]">
+      <section className="border-b border-[#E7E0D6] overflow-hidden">
+        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-32">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-sm font-medium uppercase tracking-[0.28em] text-[#6B645C]"
+          >
             Rachel Christopher
-          </p>
+          </motion.p>
 
-          <h1 className="mt-6 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mt-6 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl"
+          >
             Brand strategy for organizations that have outgrown their current story.
-          </h1>
+          </motion.h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-[#57534E] md:text-xl">
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.2 }}
+            className="mt-8 max-w-2xl text-lg leading-8 text-[#57534E] md:text-xl"
+          >
             Rachel Christopher helps leadership teams clarify their position, align internally, and move forward with confidence.
-          </p>
+          </motion.p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
             <a
               href="#contact"
               className="rounded-2xl bg-[#3F4F3F] px-8 py-4 text-sm font-medium text-white transition hover:bg-[#354335]"
@@ -83,11 +105,17 @@ export default function App() {
             >
               About Rachel
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#F1ECE4]">
+      <motion.section
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.7 }}
+        className="bg-[#F1ECE4]"
+      >
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-[0.24em] text-[#6B645C]">
@@ -99,19 +127,29 @@ export default function App() {
           </div>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {triggerPoints.map((item) => (
-              <div
+            {triggerPoints.map((item, index) => (
+              <motion.div
                 key={item}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
                 className="rounded-[1.5rem] border border-[#DED5C8] bg-[#F8F6F2] px-6 py-6"
               >
                 <p className="text-base leading-7 text-[#3F3A35]">{item}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="border-y border-[#E7E0D6] bg-[#FCFBF8]">
+      <motion.section
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+        className="border-y border-[#E7E0D6] bg-[#FCFBF8]"
+      >
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-[0.24em] text-[#6B645C]">
@@ -123,20 +161,30 @@ export default function App() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {leverageAreas.map((item) => (
-              <div
+            {leverageAreas.map((item, index) => (
+              <motion.div
                 key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.28 }}
+                transition={{ duration: 0.55, delay: index * 0.08 }}
                 className="rounded-[1.75rem] border border-[#E3DBCF] bg-white p-8 shadow-[0_8px_30px_rgba(28,25,23,0.04)]"
               >
                 <h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
                 <p className="mt-4 text-base leading-7 text-[#57534E]">{item.body}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+      <motion.section
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.7 }}
+        className="mx-auto max-w-6xl px-6 py-24 md:px-10"
+      >
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.24em] text-[#6B645C]">
             How she thinks
@@ -147,18 +195,28 @@ export default function App() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {principles.map((item) => (
-            <div
+          {principles.map((item, index) => (
+            <motion.div
               key={item}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.55, delay: index * 0.08 }}
               className="rounded-[1.75rem] border border-[#E3DBCF] bg-white p-8 shadow-[0_8px_30px_rgba(28,25,23,0.04)]"
             >
               <p className="text-lg leading-8 text-[#3F3A35]">{item}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="border-y border-[#E7E0D6] bg-white">
+      <motion.section
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+        className="border-y border-[#E7E0D6] bg-white"
+      >
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <div>
@@ -171,9 +229,13 @@ export default function App() {
             </div>
 
             <div className="space-y-5">
-              {processSteps.map((step) => (
-                <div
+              {processSteps.map((step, index) => (
+                <motion.div
                   key={step.number}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.28 }}
+                  transition={{ duration: 0.55, delay: index * 0.08 }}
                   className="rounded-[1.75rem] border border-[#E3DBCF] bg-[#FCFBF8] p-6"
                 >
                   <div className="flex items-start gap-4">
@@ -185,24 +247,41 @@ export default function App() {
                       <p className="mt-2 text-base leading-7 text-[#57534E]">{step.body}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="about" className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+      <motion.section
+        id="about"
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+        className="mx-auto max-w-6xl px-6 py-24 md:px-10"
+      >
         <div className="grid items-center gap-12 md:grid-cols-[320px_1fr] md:gap-16">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.6 }}
+          >
             <img
               src="/rachel-headshot.jpg"
               alt="Rachel Christopher"
               className="w-full rounded-[1.75rem] border border-[#E3DBCF] object-cover shadow-[0_12px_40px_rgba(28,25,23,0.06)]"
             />
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+          >
             <p className="text-sm font-medium uppercase tracking-[0.24em] text-[#6B645C]">
               About Rachel
             </p>
@@ -232,11 +311,18 @@ export default function App() {
                 <p className="mt-2 text-sm leading-6 text-[#57534E]">Works as an extension of the team</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="contact" className="bg-[#1F2A1F] text-white">
+      <motion.section
+        id="contact"
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+        className="bg-[#1F2A1F] text-white"
+      >
         <div className="mx-auto max-w-5xl px-6 py-24 text-center md:px-10">
           <p className="text-sm font-medium uppercase tracking-[0.24em] text-[#B7C2B2]">
             Contact
@@ -266,7 +352,7 @@ export default function App() {
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }
